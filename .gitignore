@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+backend/dist/
+frontend/dist/
+
+# env files (never commit real secrets)
+.env
+!.env.example
+
+# database
+backend/dev.db
+backend/dev.db-journal
+backend/prisma/dev.db
+backend/prisma/dev.db-journal
+
+# misc
+.DS_Store
+*.log
+tsconfig.tsbuildinfo
