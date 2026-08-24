@@ -37,7 +37,6 @@ The API runs on `http://localhost:4000`. The seed script creates:
 | Admin | `admin@latticecare.demo` | `DemoPass123!` |
 | Patient | `ananya.shah@demo.test` | `DemoPass123!` |
 | Doctor | `meera.iyer@demo.test` (Internal Medicine) | `DemoPass123!` |
-| Doctor | `arjun.menon@demo.test` (Cardiology) | `DemoPass123!` |
 | Doctor | `naina.kapoor@demo.test` (Dermatology) | `DemoPass123!` |
 
 ### 2. Frontend
