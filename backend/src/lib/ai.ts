@@ -1,5 +1,5 @@
 const fallback = 'Summary generation pending - please contact your doctor\'s office.';
-const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_MODEL = 'gemini-2.5-flash';
 const apiKey = process.env.GEMINI_API_KEY;
 
 async function callGemini(prompt: string, maxOutputTokens: number): Promise<string> {

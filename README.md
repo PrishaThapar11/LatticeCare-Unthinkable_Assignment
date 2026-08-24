@@ -7,7 +7,7 @@ Care, clearly connected. A clinic platform with separate patient, doctor, and ad
 - **Backend** — Node.js, Express, TypeScript, Prisma ORM, SQLite (zero-setup; swap the `DATABASE_URL` provider for Postgres in production)
 - **Frontend** — React, TypeScript, Vite, Tailwind CSS, React Router
 - **Auth** — JWT, role-based (`PATIENT` / `DOCTOR` / `ADMIN`)
-- **LLM** — Google Gemini (`gemini-2.0-flash`, free tier via Google AI Studio) for pre-visit & post-visit summaries
+- **LLM** — Google Gemini (`gemini-2.5-flash`, free tier via Google AI Studio) for pre-visit & post-visit summaries
 - **Email** — Nodemailer (SMTP), with a DB-backed retry queue swept every 5 minutes
 - **Calendar** — Google Calendar API, OAuth 2.0
 
