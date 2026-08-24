@@ -7,7 +7,7 @@ Care, clearly connected. A clinic platform with separate patient, doctor, and ad
 - **Backend** — Node.js, Express, TypeScript, Prisma ORM, SQLite (zero-setup; swap the `DATABASE_URL` provider for Postgres in production)
 - **Frontend** — React, TypeScript, Vite, Tailwind CSS, React Router
 - **Auth** — JWT, role-based (`PATIENT` / `DOCTOR` / `ADMIN`)
-- **LLM** — Anthropic Claude (pre-visit & post-visit summaries)
+- **LLM** — Google Gemini (`gemini-2.0-flash`, free tier via Google AI Studio) for pre-visit & post-visit summaries
 - **Email** — Nodemailer (SMTP), with a DB-backed retry queue swept every 5 minutes
 - **Calendar** — Google Calendar API, OAuth 2.0
 
@@ -58,7 +58,7 @@ JWT_SECRET="replace-with-a-long-random-string"
 PORT=4000
 FRONTEND_URL=http://localhost:5173
 
-ANTHROPIC_API_KEY=
+GEMINI_API_KEY=
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=
@@ -70,11 +70,11 @@ GOOGLE_REDIRECT_URI=http://localhost:4000/api/calendar/callback
 ```
 
 The app degrades gracefully without the optional integrations:
-- No `ANTHROPIC_API_KEY` → pre/post-visit summaries fall back to a generic placeholder and are flagged `retryRequired: true`, but booking and visit completion still succeed.
+- No `GEMINI_API_KEY` → pre/post-visit summaries fall back to a generic placeholder and are flagged `retryRequired: true`, but booking and visit completion still succeed.
 - No `SMTP_*` → notifications are logged to the database (visible via `notificationLog`) but not actually emailed.
 - No `GOOGLE_CLIENT_ID`/`SECRET` → calendar sync is silently skipped; nothing breaks.
 
-**Getting an Anthropic API key:** console.anthropic.com → Get API Keys → Create Key.
+**Getting a Gemini API key (free, no card required):** go to aistudio.google.com/apikey → sign in with a Google account → "Create API key". The free tier's rate limits are generous enough for demoing and evaluating this project.
 
 **Getting Gmail SMTP credentials:** enable 2-factor auth on the Gmail account, then generate an "App Password" at myaccount.google.com/apppasswords. Use that as `SMTP_PASS` (not your normal password).
 
